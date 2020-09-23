@@ -1,0 +1,183 @@
+汇编指令
+        常见寄存器
+        数据传送指令
+        算术运算指令
+        逻辑运算指令
+        循环控制指令
+        转移指令
+    Python
+        基本语法
+        常见函数
+    Linux虚拟机kali&ubuntu指令
+        基础指令
+        kali下的及使用指令
+        ubuntu下的使用指令
+
+
+汇编指令
+常见寄存器
+
+cpu存取优先寄存器
+寄存器名称	用途
+EAX	用于乘除法和函数返回值
+EBX	内存数据指针，常以它为基址访问内存
+ECX	字符串和循环的计数器
+EDX	用于乘除法
+–	–
+ESI	内存数据指针和源字符串指针
+EDI	内存数据指针和字符串指针
+–	–
+ESP	栈顶指针
+EBP	堆栈指针，可以访问栈内任何地址，也以它为基址访问堆栈
+数据传送指令
+
+src：源操作数，数据传送指令一般都是操作数自源地址单元传送到目的地址单元,指令执行后,源地址单元的操作不变,目的地址单元的操作数则修改为源单元的操作数叫做源操作数。也就是你要操作的那个数的地址。
+dest：目标操作数，将数字操作完之后，将其结果输出到某个地址，这个地址就是目标操作数。
+
+其中在操作时，为：
+命令 dest，src，
+如：MOV AH，02
+名称	用途
+MOV	传送指令，把数据从src移动到dest
+PUSH	进栈指令，把src压入栈底
+POP	出栈指令，从栈顶弹出字数据到dest
+算术运算指令
+名称	用途
+ADD	加法指令，在dest基础上加上src
+SUB	减法指令，在dest基础上减src
+INC	加一指令，在dest基础上加1
+DEC	减一指令，在dest基础上减1
+逻辑运算指令
+名称	用途
+NOT	取反，把dest按位取反
+AND	与，把dest和src进行与运算后送回dest
+OR	或，把dest和src进行或运算后送回dest
+XOR	异或，把dest和src进行异或运算后送回dest
+循环控制指令
+
+label：定义变量或标号的类型，而变量或标号的段属性和偏移属性由该语句所处的位置确定。
+名称	用途
+LOOP	使循环寄存器（ECX）值减一，当ECX不为0得时候跳转至label继续循环，否则结束循环
+转移指令
+
+zf=Zero flag，标志寄存器里flag寄存器里的一位。如果指令执行后的结果为0 ,ZF=1
+如果结果不为0 ， ZF=0
+名称	用途
+CALL	过程调用指令，如call label ->直接调用label
+JMP	无条件转移指令，无条件转移到标号为label的位置
+JE	条件转移指令，zf=1时跳转至label
+JNE	条件转移指令，zf=0时跳转至label
+
+
+Python
+基本语法
+
+import 模块名
+#导入函数模块
+
+from 模块名 import 函数名  /  *
+#导入特定函数/全部函数
+
+模块.函数名()
+#直接调用模块函数
+
+变量名1 = open(r"路径",'r')
+#打开一个文件
+
+变量名2 = 变量名1.read
+#读取该文件
+
+print("xxxx",end = "可加任何分隔记号")
+#输出
+
+变量名 = input("xxxx:")
+#显示xxxx：并接受输入值
+
+if(xxxx and/or xxxx):** **else：
+#条件语句且/或
+
+for 变量名 in 目标：
+#循环，目标为列表或字符串，列表的话，变量为1 2 3，字符串的话变量则为每个字符
+常见函数
+
+def 函数名(参数)：
+#定义函数
+
+list(变量名)
+#将变量变为列表[ ]
+
+range(start,stop,step)/range(数字)
+#开始，结束，步长/到该数字结束，一般用于for，如for i in range(3),输出i为0 1 2
+
+ord(字符)
+#将字符转为10进制数
+
+hex(数字)
+#将数字转为16进制
+
+.upper()
+#全部大写
+
+.lower()
+#全部小写
+
+.append()
+#将元素添加到列表末尾
+
+.insert(0,‘元素’)
+#将元素添加到开头(添加元素到任意位置)
+
+len() 
+#获取列表长度 （计算元素是从1开始的）
+
+.reverse()
+#反转列表元素的排列（与字母顺序无关）
+
+print(变量[0:3])
+#输出是三个元素 0,1,2
+
+random.random(a,b)
+#产生一个随机数在a，b之间
+
+
+Linux虚拟机kali&ubuntu指令
+基础指令
+
+ls：列出目录
+
+cd xxx：切换目录
+
+cat xxx.txt：打开文本文件
+
+apt install xxx：安装xxx
+
+./xxx ：打开elf文件
+
+python xxx：用python打开xxx
+
+chmod +x xxx：给xxx可执行权限
+
+file xxx：显示xxx文件的信息
+
+tab：名字补全
+
+↑：选择之前输入过的内容
+kali下的及使用指令
+
+binwalk xxx
+用binwalk打开xxx
+
+dd if=文件名 of=分离出的包的名字 skip=地址数(10进制) bs=1
+分离文件
+
+unzip xxx
+解压一个叫xxx的解压包
+
+upx -d xxx
+给xxx脱upx壳
+ubuntu下的使用指令
+
+nc：
+
+nc：xxx.xxx.xxx
+nc连接到xxx   
